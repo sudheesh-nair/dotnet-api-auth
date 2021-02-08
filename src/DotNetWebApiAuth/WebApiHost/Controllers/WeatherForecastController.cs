@@ -12,6 +12,9 @@ namespace WebApiHost.Controllers
     [Authorize]
     public class WeatherForecastController : ControllerBase
     {
+        private const string ADMIN_ROLE = "Administrator";
+        private const string USER_ROLE = "User";
+
         private static readonly string[] Summaries = new[]
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
@@ -41,6 +44,11 @@ namespace WebApiHost.Controllers
         [Route("name")]
         public string GetName() => String.Format("Authenticated - {0} has role {1}", 
             User.Identity.Name,
-            User.IsInRole("Administrator") ? "Administrator" : "User");
+            User.IsInRole(ADMIN_ROLE) ? ADMIN_ROLE : USER_ROLE);
+
+        [HttpGet]
+        [Route("topsecret")]
+        [Authorize(Roles = ADMIN_ROLE)]
+        public string GetSecureMessageForAdmin() => String.Format("Happiness is a daily decision");
     }
 }
