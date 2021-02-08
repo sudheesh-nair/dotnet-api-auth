@@ -7,7 +7,7 @@ namespace WebApiHost.Auth
     public class TokenValidator
     {
         private const string CONFIG_KEY_FOR_SECURITY_KEY = "SecurityKey";
-        private TokenValidationParameters tokenValidationParameters;
+        private readonly TokenValidationParameters tokenValidationParameters;
 
         public TokenValidator(IConfiguration configuration)
         {

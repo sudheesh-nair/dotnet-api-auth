@@ -58,6 +58,10 @@ namespace WebApiHost
                 .AddJwtBearer(x =>
                 {
                     x.TokenValidationParameters = new TokenValidator(Configuration).GetTokenValidationParameters();
+                    x.Events = new JwtBearerEvents
+                    {
+                        OnTokenValidated = async ctx => { await new RoleValidator().OnTokenValidated(ctx); }
+                    };
                 });
         }
 
