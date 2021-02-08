@@ -36,5 +36,11 @@ namespace WebApiHost.Controllers
             })
             .ToArray();
         }
+
+        [HttpGet]
+        [Route("name")]
+        public string GetName() => String.Format("Authenticated - {0} has role {1}", 
+            User.Identity.Name,
+            User.IsInRole("Administrator") ? "Administrator" : "User");
     }
 }

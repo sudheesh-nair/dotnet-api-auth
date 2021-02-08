@@ -36,7 +36,7 @@ namespace WebApiHost
                     BearerFormat = "JWT",
                     In = ParameterLocation.Header,
                     Description = @"Enter 'Bearer' [space] and then your valid token in the text input below. Example:<br/>
-                        Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyLCJleHAiOjE3MDAwMDAwMDB9.qfyywTz7exSab8XWja1X-6_HmNh57a_UltAPCW3im_o",
+                        Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwidW5pcXVlX25hbWUiOiJKb2huIERvZSIsImlhdCI6MTUxNjIzOTAyMiwiZXhwIjoxNjEzNTYxNzg2fQ.tag-JHGxmkqNNljKu99wI_SBQZzcMkNwTyZsu7eTwAk",
                 });
                 c.AddSecurityRequirement(new OpenApiSecurityRequirement
                 {
